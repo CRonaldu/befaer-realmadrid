@@ -25,8 +25,20 @@ class Forum:
     def show_comments(self):
         return self.comments
     
+
+    def show_users(self):
+        return [user.name for user in self.users]
+
+  
+  
     def add_comment(self , user , comment):
         self.comments[user.name] = comment
+
+
+
+
+
+
 
 user1 = User('Dastan' , 18 , 'aktajdastan')
 print (user1.informaton())
@@ -34,6 +46,8 @@ forum1 = Forum('Python Forum')
 forum1.add_user(user1)
 forum1.comment(user1 , 'This is a great forum!')
 print (forum1.show_comments())
+print (forum1.show_users())
+
 
 
        
