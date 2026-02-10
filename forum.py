@@ -1,5 +1,8 @@
 print ('hello world')
 
+
+
+
 class User:
 
     def __init__( self, name, age , gmail):
@@ -24,13 +27,35 @@ class Forum:
 
     def show_comments(self):
         return self.comments
+    
+    
+        
+    def register_admin(self , adminname):
+        self.admin = adminname
 
-user1 = User('Dastan' , 18 , 'aktajdastan')
-print (user1.informaton())
-forum1 = Forum('Python Forum')
-forum1.add_user(user1)
-forum1.comment(user1 , 'This is a great forum!')
-print (forum1.show_comments())
+    def delete_comment(self , admin , user):
+        if admin == self.admin:
+            del self.comments[user.name]
+        else:
+            return "Only admin can delete comments."
+        
+        
+    
 
 
-       
+
+user1 = User("Dastan",19,'Aktaidastangmail.com')
+forum = Forum("Python Forum")
+forum.add_user(user1)
+forum.comment(user1 , "This is my first comment!")
+print(forum.show_comments())
+user2 = User("Aizhan", 25, 'aizhangmail.com')
+forum.add_user(user2)
+forum.comment(user2 , "Hello everyone!")
+print(forum.show_comments())
+admin1 = forum.register_admin("AdminUser")
+forum.delete_comment(admin1, 'Dastan')
+print(forum.show_comments())
+
+
+    
