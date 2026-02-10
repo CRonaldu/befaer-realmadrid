@@ -24,6 +24,9 @@ class Forum:
 
     def show_comments(self):
         return self.comments
+    
+    def add_comment(self , user , comment):
+        self.comments[user.name] = comment
 
 user1 = User('Dastan' , 18 , 'aktajdastan')
 print (user1.informaton())
